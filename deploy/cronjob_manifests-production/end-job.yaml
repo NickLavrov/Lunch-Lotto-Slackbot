@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: end-lunch-lottery
+spec:
+  schedule: "0 19 * * 2"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: lottery-bot
+              image: __IMAGE__
+              imagePullPolicy: Always
+              args:
+                - /bin/bash
+                - -c
+                - python bot.py end
+              envFrom:
+                - secretRef:
+                    name: lunch-lottery-bot-secrets
+                - configMapRef:
+                    name: lunch-lottery-bot-configmap

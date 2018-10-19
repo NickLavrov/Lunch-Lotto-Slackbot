@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: remind-lunch-lottery
+spec:
+  schedule: "1 17 * * 4"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: lottery-bot
+              image: __IMAGE__
+              imagePullPolicy: Always
+              args:
+                - /bin/bash
+                - -c
+                - python bot.py remind
+              envFrom:
+                - secretRef:
+                    name: lunch-lottery-bot-secrets
+                - configMapRef:
+                    name: lunch-lottery-bot-configmap
