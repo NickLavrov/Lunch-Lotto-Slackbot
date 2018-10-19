@@ -9,22 +9,33 @@ Make sure you set the following env vars:
 secret env vars:
 
 `BOT_TOKEN=xoxb-xx-xx-xx`
+
 `OAUTH_BOT_TOKEN=xoxp-xx-xx-xx-xx`
 
 config env vars:
 
 Staging:
+
 `BOT_NAME=LunchLottoBot`
+
 `CHANNEL=test-lunch-lotto`
+
 `NUMBER_OF_WINNERS=1`
+
 `PER_PERSON_BUDGET=Z`
+
 `ENVIRONMENT=staging`
 
 Production:
+
 `BOT_NAME=LunchLottoBot`
+
 `CHANNEL=office`
+
 `NUMBER_OF_WINNERS=3`
+
 `PER_PERSON_BUDGET=20`
+
 `ENVIRONMENT=PRODUCTION`
 
 ## Deploy:
